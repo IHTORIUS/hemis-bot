@@ -1,7 +1,17 @@
 process.env.NTBA_FIX_319 = 1;
+const PORT = process.env.PORT || 5000
 const TelegramApi = require('node-telegram-bot-api')
 const timetable = require("./parser")
 const updateData = require("./emuter");
+
+const express = require("express");
+const app = express();
+app.get("/", function(request, response){
+    response.send("<h2>Бот: https://t.me/hemistimetable_bot </h2>");
+});
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
 
 const fs = require("fs");
 console.log(timetable);
