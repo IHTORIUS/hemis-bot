@@ -15,6 +15,7 @@ console.log("Неделя:",thisweek);
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--use-gl=egl'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
 
 //New page with urls
