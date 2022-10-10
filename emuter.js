@@ -13,18 +13,12 @@ async function getPage(){
 console.log("Неделя:",thisweek);
 //Open Chromium and set options
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     ignoreHTTPSErrors: true,
-    args: [`--window-size = 1920,1080`],
   });
 
 //New page with urls
   const page = await browser.newPage();
-
-  await page.setViewport({
-    width: 1920,
-    height: 1080
-  })
 
   await page.goto(url, {
     waitUntil: 'networkidle0'
@@ -43,10 +37,6 @@ console.log("Неделя:",thisweek);
 
   await page.goto(`https://student.fbtuit.uz/ru/education/time-table?week=${thisweek}`, {waitUntil: 'load', timeout: 0});
 
-  await page.screenshot({
-    path: 'HemisScreen.png'
-  })
-
   const html = await page.content();
 
 //Save or update saved page
@@ -57,4 +47,5 @@ console.log("Неделя:",thisweek);
 
   browser.close()
 };
+
 module.exports = getPage;
