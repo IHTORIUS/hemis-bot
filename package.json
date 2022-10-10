@@ -1,4 +1,8 @@
-{
+{ 
+  "scripts": {
+    "start-dev": "node TelegramBot.js",
+    "start": "node TelegramBot.js"
+  },
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.9",
     "cheerio": "^1.0.0-rc.10",
