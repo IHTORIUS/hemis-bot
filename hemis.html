@@ -1,0 +1,684 @@
+<!DOCTYPE html><html lang="ru-RU" style="height: auto; min-height: 100%;"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex,follow">
+        <meta name="csrf-param" content="_csrf-frontend">
+<meta name="csrf-token" content="wHA36GpXVMrirEiE7FXHnudPJTld4YWRkXB_aNSqjs6EJGXbOg4tkLfEO-jcBYOm0zpIFBmDxPf9OT0dk9nBvw==">
+        <title>Расписание занятий | Информационная система &lt;br&gt;HEMIS Student</title>
+                <link href="/assets/1619872/css/bootstrap.css?v=1550073338" rel="stylesheet">
+<link href="/assets/87d5e0e3/css/select2.min.css?v=1580187682" rel="stylesheet">
+<link href="/assets/f8683188/css/select2-addl.min.css?v=1623971337" rel="stylesheet">
+<link href="/assets/f8683188/css/select2-default.min.css?v=1617883751" rel="stylesheet">
+<link href="/assets/824b60c5/css/kv-widgets.min.css?v=1654092339" rel="stylesheet">
+<link href="/assets/ba90a310/themes/smoothness/jquery-ui.css?v=1474004875" rel="stylesheet">
+<link href="/assets/7218a321/chosen_v1.4.0/chosen.min.css?v=1617883776" rel="stylesheet">
+<link href="/assets/7218a321/components-font-awesome/css/font-awesome.min.css?v=1401044116" rel="stylesheet">
+<link href="/assets/fe161102/css/font-awesome.min.css?v=1477324374" rel="stylesheet">
+<link href="/assets/c2a219b4/plugins/iCheck/flat/blue.css?v=1567066820" rel="stylesheet">
+<link href="/assets/c2a219b4/dist/css/AdminLTE.min.css?v=1567066820" rel="stylesheet">
+<link href="/assets/c2a219b4/dist/css/skins/skin-blue.min.css?v=1567066820" rel="stylesheet">
+<link href="/assets/c70cf1f/src/0.1.4/css/checkBo.min.css?v=1465721329" rel="stylesheet">
+<link href="/assets/5ede356a/css/style.css?v=1663263380" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" rel="stylesheet">
+<link href="/assets/911bdccc/css/front.css?v=1661667029" rel="stylesheet">
+<script>var s2options_7ebc6538 = {"themeCss":".select2-container--default","sizeCss":"","doReset":true,"doToggle":false,"doOrder":false};
+window.select2_ce4f89ae = {"allowClear":false,"placeholder":"Выберите Неделя","theme":"default","width":"100%","language":"ru-RU"};
+
+var globalMessages={"deleteItem":"Вы действительно хотите удалить?"};</script>    <style id="theia-sticky-sidebar-stylesheet-TSS">.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style></head>
+    <body class="sidebar-mini skin-blue" style="height: auto; min-height: 100%;">
+            <div class="wrapper" style="height: auto; min-height: 100%;">
+
+        
+<div id="modal" class="fade modal" role="dialog" tabindex="-1">
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+<div id="modalHeader" class="modal-header" style="opacity:1.00;">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+Информация о расписании групп
+</div>
+<div class="modal-body">
+<div id="modalContent"></div>
+</div>
+
+</div>
+</div>
+</div>    <header class="main-header">
+
+        <a class="logo" href="/ru"><span class="logo-lg">HEMIS Student</span></a>
+        <nav class="navbar navbar-static-top" role="navigation">
+
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+
+            <div class="navbar-custom-menu">
+
+                <ul class="nav navbar-nav">
+                                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Русский                        </a>
+                        <ul class="dropdown-menu">
+                                                                                            <li>
+                                    <a href="/education/time-table?week=4167">
+                                        O‘zbekcha                                    </a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/oz/education/time-table?week=4167">
+                                        Ўзбекча                                    </a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/ru/education/time-table?week=4167">
+                                        Русский                                    </a>
+                                </li>
+                                                                                            <li>
+                                    <a href="/en/education/time-table?week=4167">
+                                        English                                    </a>
+                                </li>
+                                                                                                                                                                                                                    </ul>
+                    </li>
+                    <!-- <li>
+                    <a href="">
+                        <i class="fa fa-refresh"></i>
+                    </a>
+                </li>-->
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="label label-warning">0</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <ul class="menu">
+                                                                    </ul>
+                            </li>
+                            <li class="footer">
+                                <a href="/ru/message/my-messages">Посмотреть все</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown  user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="https://hemis.fbtuit.uz/static/crop/2/1/120_120_90_2170006031.jpg" class="user-image" alt="Ixtiyorjon Baxramov">
+                            <span class="user-name">BAXRAMOV I. B.</span>
+                            <span class="user-role">654-19</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/ru/dashboard/profile">Профиль</a>                            </li>
+                            <li>
+                                <a href="/ru/student/personal-data">Личная информация</a>                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <a href="/ru/dashboard/logout"><i class="fa fa-sign-out"></i> Выход</a>                            </li>
+                        </ul>
+
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+        <aside class="main-sidebar">
+    <section class="sidebar">
+        <ul class="sidebar-menu tree" data-widget="tree">
+                                            <li class="treeview menu-open">
+                    <a href="/ru/education/time-table">
+                        <i class="fa fa-book"></i> <span>Учебный план</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu" style="display:block">
+                                                    <li class="">
+                                <a href="/ru/education/curriculum">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Учебный план</span>
+                                </a>
+                            </li>
+                                                    <li class="active">
+                                <a href="/ru/education/time-table">
+                                    <i class="fa fa-circle"></i>
+                                    <span>Расписание занятий</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/education/exam-table">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>График экзаменов</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/education/subjects">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Ресурсы дисциплин</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/education/attendance">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Посещаемость</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/education/performance">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Успеваемость</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/test/exams">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Экзамены</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/education/academic-data">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Рейтинговая книжка</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/education/subject-choose">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Выбор предмета</span>
+                                </a>
+                            </li>
+                                            </ul>
+                </li>
+                                            <li class="treeview ">
+                    <a href="/ru/retraining/application">
+                        <i class="fa fa-book"></i> <span>Переобучение</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                                                    <li class="">
+                                <a href="/ru/retraining/application">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Заявление на переобучению</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/retraining/time-table">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Занятий переобучения</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/retraining/exam-table">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Расп. экз. переобучения</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/retraining/performance">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Ведомость переобучения</span>
+                                </a>
+                            </li>
+                                            </ul>
+                </li>
+                                            <li class="treeview ">
+                    <a href="/ru/student/decree">
+                        <i class="fa fa-user"></i> <span>Информация студента</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                                                    <li class="">
+                                <a href="/ru/student/decree">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Приказы</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/student/contract">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Контракты</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/student/reference">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Справки</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/student/document">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Документы студента</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/student/graduate-qualifying">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Выпускная работа</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/student/circulation-sheet">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Обходной лист</span>
+                                </a>
+                            </li>
+                                            </ul>
+                </li>
+                                            <li class="treeview ">
+                    <a href="/ru/message/my-messages">
+                        <i class="fa fa-envelope"></i> <span>Сообщения</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                                                    <li class="">
+                                <a href="/ru/message/my-messages">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Мои сообщения</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/message/compose">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Создать сообщение</span>
+                                </a>
+                            </li>
+                                            </ul>
+                </li>
+                                            <li class="treeview ">
+                    <a href="/ru/dashboard/profile">
+                        <i class="fa fa-gear"></i> <span>Система</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                                                    <li class="">
+                                <a href="/ru/dashboard/profile">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>Профиль</span>
+                                </a>
+                            </li>
+                                                    <li class="">
+                                <a href="/ru/dashboard/logins">
+                                    <i class="fa fa-circle-o"></i>
+                                    <span>История входа</span>
+                                </a>
+                            </li>
+                                            </ul>
+                </li>
+                    </ul>
+    </section>
+</aside>
+
+        <div class="content-wrapper" style="min-height: 979px;">
+    <section class="content">
+        <div id="schedule-grid" data-pjax-container="" data-pjax="1"><div class="info-box box-mini">
+    <div class="row">
+        <div class="col-sm-6">
+            <span class="info-box-icon bg-green"><i class="fa fa-files-o"></i></span>
+            <div class="info-box-content ">
+
+                <span class="info-box-number">
+                        654-19                                    </span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="info-box-content no-margin text-right text-center-sm">
+                <label class="hidden visible-xs plabel">Семестр</label>
+                <ul class="pagination pagination-sm psemester ">
+                    <li class=" hidden-xs"><a href="#" class="plabel">Семестр</a></li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=11">1</a>
+                        </li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=12">2</a>
+                        </li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=13">3</a>
+                        </li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=14">4</a>
+                        </li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=15">5</a>
+                        </li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=16">6</a>
+                        </li>
+                                            <li class="active">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=17">7</a>
+                        </li>
+                                            <li class="">
+                            <a href="/ru/education/time-table?week=4167&amp;semester=18">8</a>
+                        </li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row" id="data-grid-filters">
+        <form id="w0" action="/ru/education/time-table?week=4167" method="post">
+<input type="hidden" name="_csrf-frontend" value="wHA36GpXVMrirEiE7FXHnudPJTld4YWRkXB_aNSqjs6EJGXbOg4tkLfEO-jcBYOm0zpIFBmDxPf9OT0dk9nBvw==">        <div class="col col-sm-2 col-md-1 col-md-offset-3 hidden-xs">
+            <label>&nbsp;</label>
+            <a href="/ru/education/time-table?week=4166" class="btn btn-primary btn-block btn-flat">
+                <i class="fa fa-chevron-left"></i>
+            </a>
+        </div>
+        <div class="col col-xs-12 col-sm-8 col-md-4 text-center">
+            <div class="form-group field-studentschedule-_week">
+<label class="control-label" for="studentschedule-_week">Выберите неделю</label>
+<select id="studentschedule-_week" class="form-control select2-hidden-accessible" name="StudentSchedule[_week]" onchange="selectWeek(this)" data-s2-options="s2options_7ebc6538" data-krajee-select2="select2_ce4f89ae" data-select2-id="studentschedule-_week" tabindex="-1" aria-hidden="true">
+<option value="">Выберите Неделя</option>
+<option value="4163">159.  12 сентября /  17 сентября</option>
+<option value="4164">160.  19 сентября /  24 сентября</option>
+<option value="4165">161.  26 сентября /  01 октября</option>
+<option value="4166">162.  03 октября /  08 октября</option>
+<option value="4167" selected="" data-select2-id="2">163.  10 октября /  15 октября</option>
+<option value="4168">164.  17 октября /  22 октября</option>
+<option value="4169">165.  24 октября /  29 октября</option>
+<option value="4170">166.  31 октября /  05 ноября</option>
+<option value="4171">167.  07 ноября /  12 ноября</option>
+<option value="4172">168.  14 ноября /  19 ноября</option>
+<option value="4173">169.  21 ноября /  26 ноября</option>
+<option value="4174">170.  28 ноября /  03 декабря</option>
+<option value="4175">171.  05 декабря /  10 декабря</option>
+<option value="4176">172.  12 декабря /  17 декабря</option>
+<option value="4177">173.  19 декабря /  24 декабря</option>
+</select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="1" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-studentschedule-_week-container"><span class="select2-selection__rendered" id="select2-studentschedule-_week-container" role="textbox" aria-readonly="true" title="163.  10 октября /  15 октября">163.  10 октября /  15 октября</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+
+<div class="help-block"></div>
+</div>        </div>
+        <div class="col col-sm-2 col-md-1  hidden-xs">
+            <label>&nbsp;</label>
+            <a href="/ru/education/time-table?week=4168" class="btn btn-primary btn-block btn-flat">
+                <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+        </form>    </div>
+
+            <div class="row sh-parent">
+                            <div class="col-sm-4">
+                    <div class="box box-success sh" style="height: 225px;">
+                        <div class="box-header  with-border">
+                            <h3 class="box-title display-block">
+                                понедельник                                <span class="pull-right text-muted fs16">
+                                    10 октября, 2022                                    </span>
+                            </h3>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=66" data-pjax="0" title="TILLYABOYEV A’ZAMJON ANVAROVICH">
+                                            1. Dasturiy ta'minot qurilmasi va evolyutsiyasi<br>
+                                            <span class="text-center text-muted">204 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">TILLYABOYEV A. A.</span>
+
+                                            <span class="pull-right text-muted">08:30</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=331" data-pjax="0" title="XADJAYEV SAIDAKBAR ISMOIL O‘G‘LI">
+                                            2. IT/Mutaxassislik tanlov fani (SQL dasturlash tili)<br>
+                                            <span class="text-center text-muted">105 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Лекция</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">XADJAYEV S. I.</span>
+
+                                            <span class="pull-right text-muted">10:00</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=66" data-pjax="0" title="TILLYABOYEV A’ZAMJON ANVAROVICH">
+                                            3. Dasturiy ta'minot qurilmasi va evolyutsiyasi<br>
+                                            <span class="text-center text-muted">207 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Лекция</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">TILLYABOYEV A. A.</span>
+
+                                            <span class="pull-right text-muted">11:30</span>
+                                        </a>
+
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-sm-4">
+                    <div class="box box-success sh" style="height: 225px;">
+                        <div class="box-header  with-border">
+                            <h3 class="box-title display-block">
+                                вторник                                <span class="pull-right text-muted fs16">
+                                    11 октября, 2022                                    </span>
+                            </h3>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=66" data-pjax="0" title="TILLYABOYEV A’ZAMJON ANVAROVICH">
+                                            1. Dasturiy ta'minot qurilmasi va evolyutsiyasi<br>
+                                            <span class="text-center text-muted">105 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Лекция</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">TILLYABOYEV A. A.</span>
+
+                                            <span class="pull-right text-muted">08:30</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=331" data-pjax="0" title="XADJAYEV SAIDAKBAR ISMOIL O‘G‘LI">
+                                            2. IT/Mutaxassislik tanlov fani (SQL dasturlash tili)<br>
+                                            <span class="text-center text-muted">202 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">XADJAYEV S. I.</span>
+
+                                            <span class="pull-right text-muted">10:00</span>
+                                        </a>
+
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-sm-4">
+                    <div class="box box-success sh" style="height: 225px;">
+                        <div class="box-header  with-border">
+                            <h3 class="box-title display-block">
+                                среда                                <span class="pull-right text-muted fs16">
+                                    12 октября, 2022                                    </span>
+                            </h3>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=402" data-pjax="0" title="ZULUNOV RAVSHANBEK MAMATOVICH">
+                                            1. IT/Mutaxassislik tanlov fani (Python tilida dasturlash)<br>
+                                            <span class="text-center text-muted">207 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Лекция</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">ZULUNOV R. M.</span>
+
+                                            <span class="pull-right text-muted">08:30</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=331" data-pjax="0" title="XADJAYEV SAIDAKBAR ISMOIL O‘G‘LI">
+                                            2. IT/Mutaxassislik tanlov fani (SQL dasturlash tili)<br>
+                                            <span class="text-center text-muted">105 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">XADJAYEV S. I.</span>
+
+                                            <span class="pull-right text-muted">10:00</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=67" data-pjax="0" title="SADIKOVA MUNIRA ALISHEROVNA">
+                                            3. Dasturiy ta'minot loyihalarini boshqarish<br>
+                                            <span class="text-center text-muted">214 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Лекция</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">SADIKOVA M. A.</span>
+
+                                            <span class="pull-right text-muted">11:30</span>
+                                        </a>
+
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+            <div class="row sh-parent">
+                            <div class="col-sm-4">
+                    <div class="box box-success sh" style="height: 164px;">
+                        <div class="box-header  with-border">
+                            <h3 class="box-title display-block">
+                                четверг                                <span class="pull-right text-muted fs16">
+                                    13 октября, 2022                                    </span>
+                            </h3>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=402" data-pjax="0" title="ZULUNOV RAVSHANBEK MAMATOVICH">
+                                            1. IT/Mutaxassislik tanlov fani (Python tilida dasturlash)<br>
+                                            <span class="text-center text-muted">101 B</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">ZULUNOV R. M.</span>
+
+                                            <span class="pull-right text-muted">08:30</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=67" data-pjax="0" title="SADIKOVA MUNIRA ALISHEROVNA">
+                                            2. Dasturiy ta'minot loyihalarini boshqarish<br>
+                                            <span class="text-center text-muted">206 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">SADIKOVA M. A.</span>
+
+                                            <span class="pull-right text-muted">10:00</span>
+                                        </a>
+
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                            <div class="col-sm-4">
+                    <div class="box box-success sh" style="height: 164px;">
+                        <div class="box-header  with-border">
+                            <h3 class="box-title display-block">
+                                пятница                                <span class="pull-right text-muted fs16">
+                                    14 октября, 2022                                    </span>
+                            </h3>
+                        </div>
+                        <div class="box-footer no-padding">
+                            <ul class="nav nav-stacked">
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=402" data-pjax="0" title="ZULUNOV RAVSHANBEK MAMATOVICH">
+                                            1. IT/Mutaxassislik tanlov fani (Python tilida dasturlash)<br>
+                                            <span class="text-center text-muted">205 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">ZULUNOV R. M.</span>
+
+                                            <span class="pull-right text-muted">08:30</span>
+                                        </a>
+
+                                    </li>
+                                                                    <li>
+
+                                        <a href="/ru/education/resources?subject=67" data-pjax="0" title="SADIKOVA MUNIRA ALISHEROVNA">
+                                            2. Dasturiy ta'minot loyihalarini boshqarish<br>
+                                            <span class="text-center text-muted">204 A</span>
+                                            <span class="separator">/</span>
+                                            <span class="text-center text-muted">Практика</span>
+                                                                                        <span class="separator">/</span>
+                                            <span class="text-center text-muted">SADIKOVA M. A.</span>
+
+                                            <span class="pull-right text-muted">10:00</span>
+                                        </a>
+
+                                    </li>
+                                                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    </div>
+        <script type="text/javascript">
+        function selectWeek(e) {
+            var w = $(e).val();
+            $.pjax.reload('#schedule-grid', {'url': '/ru/education/time-table?week=' + w});
+        }
+    </script>
+</div>    </section>
+</div>
+
+<footer class="main-footer">
+    <div class="hidden-xs">
+        <b>Версия программы</b> 0.8.13.17 /
+        <b>Ядро</b> 2.0.41.1 /
+        <b>Дата</b> 10.10.2022 21:20:02    </div>
+</footer>
+    </div>
+    <script src="/assets/5ede356a/js/jquery.js?v=1617882977"></script>
+<script src="/assets/a039600/yii.js?v=1614872704"></script>
+<script src="/assets/87d5e0e3/js/select2.full.min.js?v=1580187682"></script>
+<script src="/assets/87d5e0e3/js/i18n/ru.js?v=1580187682"></script>
+<script src="/assets/f8683188/js/select2-krajee.min.js?v=1623971337"></script>
+<script src="/assets/824b60c5/js/kv-widgets.min.js?v=1654092339"></script>
+<script src="/assets/a039600/yii.validation.js?v=1614872704"></script>
+<script src="/assets/a039600/yii.activeForm.js?v=1614872704"></script>
+<script src="/assets/5f6e2a39/jquery.pjax.js?v=1507803074"></script>
+<script src="/assets/ba90a310/jquery-ui.js?v=1474004875"></script>
+<script src="/assets/1619872/js/bootstrap.js?v=1550073338"></script>
+<script src="/assets/7218a321/theia-sticky-sidebar/dist/theia-sticky-sidebar.min.js?v=1493119854"></script>
+<script src="/assets/c2a219b4/plugins/iCheck/icheck.min.js?v=1567066820"></script>
+<script src="/assets/c2a219b4/dist/js/adminlte.min.js?v=1567066820"></script>
+<script src="/assets/c70cf1f/src/0.1.4/js/checkBo.min.js?v=1465721329"></script>
+<script src="/assets/5ede356a/js/ajax-modal-popup.js?v=1619656652"></script>
+<script src="/assets/5ede356a/js/jquery.floatThead.min.js?v=1663263380"></script>
+<script src="/assets/5ede356a/js/jquery.formatter.min.js?v=1617882977"></script>
+<script src="/assets/5ede356a/js/scripts.js?v=1663263380"></script>
+<script src="/assets/5ede356a/js/js.cookie.js?v=1617882977"></script>
+<script src="/assets/911bdccc/js/front.js?v=1617882977"></script>
+<script>jQuery(function ($) {
+jQuery&&jQuery.pjax&&(jQuery.pjax.defaults.maxCacheLength=0);
+if (jQuery('#studentschedule-_week').data('select2')) { jQuery('#studentschedule-_week').select2('destroy'); }
+jQuery.when(jQuery('#studentschedule-_week').select2(select2_ce4f89ae)).done(initS2Loading('studentschedule-_week','s2options_7ebc6538'));
+
+jQuery('#w0').yiiActiveForm([{"id":"studentschedule-_week","name":"_week","container":".field-studentschedule-_week","input":"#studentschedule-_week","validate":function (attribute, value, messages, deferred, $form) {yii.validation.number(value, messages, {"pattern":/^\s*[+-]?\d+\s*$/,"message":"Неделя должен быть целым числом.","skipOnEmpty":1});}}], []);
+jQuery(document).pjax("#schedule-grid a", {"push":false,"replace":false,"timeout":false,"scrollTo":false,"container":"#schedule-grid"});
+jQuery(document).off("submit", "#schedule-grid form[data-pjax]").on("submit", "#schedule-grid form[data-pjax]", function (event) {jQuery.pjax.submit(event, {"push":false,"replace":false,"timeout":false,"scrollTo":false,"container":"#schedule-grid"});});
+jQuery('#modal').modal({"show":false,"keyboard":true});
+});</script>    
+    
+</body></html>
