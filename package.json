@@ -11,5 +11,8 @@
     "nodemon": "^2.0.16",
     "puppeteer": "^13.5.2",
     "website-scraper": "^5.0.0"
+  },
+   "engines": {
+    "node": "18.x"
   }
 }

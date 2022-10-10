@@ -14,7 +14,7 @@ console.log("Неделя:",thisweek);
 //Open Chromium and set options
   const browser = await puppeteer.launch({
     headless: true,
-    ignoreHTTPSErrors: true,
+    args: ['--use-gl=egl'],
   });
 
 //New page with urls
