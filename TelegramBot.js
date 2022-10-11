@@ -1,4 +1,5 @@
 process.env.NTBA_FIX_319 = 1;
+process.env.TZ='Asia/Tashkent';
 const PORT = process.env.PORT || 5000
 const TelegramApi = require('node-telegram-bot-api')
 const timetable = require("./parser")
