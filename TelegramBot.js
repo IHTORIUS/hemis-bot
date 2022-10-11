@@ -18,7 +18,7 @@ const bot = new TelegramApi(token, {
 let nowM = new Date().getMinutes();
 let nowH = new Date().getHours() + nowM / 60;
 let today = new Date().getDay() - 1;
-console.log("TIME: ",new Data());
+console.log("TIME: ",nowH,":",nowM);
 
 //Bot API
 bot.on('message', async msg => {
