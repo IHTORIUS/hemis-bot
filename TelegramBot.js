@@ -7,6 +7,7 @@ const updateData = require("./emuter");
 const fs = require("fs");
 console.log(timetable);
 
+
 //Bot`s token
 const token = '5165864513:AAEVXXwyeO_AyiMIlp0YhGq7VmdRKRB8Py8'
 
@@ -17,6 +18,7 @@ const bot = new TelegramApi(token, {
 let nowM = new Date().getMinutes();
 let nowH = new Date().getHours() + nowM / 60;
 let today = new Date().getDay() - 1;
+console.log("TIME: ",new Data());
 
 //Bot API
 bot.on('message', async msg => {
