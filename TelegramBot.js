@@ -1,6 +1,5 @@
 process.env.NTBA_FIX_319 = 1;
 process.env.TZ='Asia/Tashkent';
-const PORT = process.env.PORT || 5000
 const TelegramApi = require('node-telegram-bot-api')
 const timetable = require("./parser")
 const updateData = require("./emuter");
@@ -8,18 +7,16 @@ const updateData = require("./emuter");
 const fs = require("fs");
 console.log(timetable);
 
-
 //Bot`s token
 const token = '5165864513:AAEVXXwyeO_AyiMIlp0YhGq7VmdRKRB8Py8'
-
 const bot = new TelegramApi(token, {
     polling: true
 });
 
+//Set time
 let nowM = new Date().getMinutes();
 let nowH = new Date().getHours() + nowM / 60;
 let today = new Date().getDay() - 1;
-console.log("TIME: ",nowH,":",nowM);
 
 //Bot API
 bot.on('message', async msg => {
@@ -40,20 +37,17 @@ bot.on('message', async msg => {
             },
         });
         console.log(msg.from);
-
-        const logtime = new Date(Date.now()).toLocaleString();
-        fs.appendFile("logs.txt", logtime + " user:" + msg.from.first_name + "\n", function (error) {
-            if (error) throw error;
-        });
     }
 
     if (text === "/info") {
         await bot.sendMessage(chatId, "Бот парсит данные из сайта https://student.fbtuit.uz/ По всем вопросам: @ihtorius");
     }
+
     if (text === "/update") {
         await bot.sendMessage(chatId, "Данные обновляются. Ждите...");
         updateData();
     }
+
     if (text === "Сейчас... ⏳") {
         //Now time
         nowM = new Date().getMinutes();
