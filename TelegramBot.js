@@ -1,5 +1,5 @@
 process.env.NTBA_FIX_319 = 1;
-process.env.TZ='Asia/Tashkent';
+process.env.TZ = 'Asia/Tashkent';
 const TelegramApi = require('node-telegram-bot-api')
 const timetable = require("./parser")
 const updateData = require("./emuter");
@@ -67,32 +67,28 @@ ${timetable[today].less1}
                     `
 ${timetable[today].less2}
 `
-            } else if (11.5 <= +nowH && nowH <= 17.8333) {
+            } else if (11.5 <= +nowH && nowH <= 12.8333) {
                 now =
                     `
 ${timetable[today].less3}
 `
-            } else if (12.5 <= +nowH && nowH <= 14.8333) {
-                now =
-                    `
-${timetable[today].less4}
-`
+            } else if (nowH > 14.8333) {
+                now = "В данный момент уроков нет."
+
             } else {
                 now = "В данный момент уроков нет."
             }
         } else {
-            todayTable = "Сегодня уроков не намечается."
             now = "В данный момент уроков нет?"
-            week = "Расписание этой недели еще не загружено на сайт."
         }
         await bot.sendMessage(chatId, now)
     }
-    
+
     if (text === "Сегодня 🌄") {
-             //Today`s table
-            today = new Date().getDay() - 1
-            var todayTable =
-                `
+        //Today`s table
+        today = new Date().getDay() - 1
+        var todayTable =
+            `
 ${timetable[today].day}
 ${timetable[today].date}:
 
@@ -101,19 +97,17 @@ ${timetable[today].less1}
 ${timetable[today].less2}
 
 ${timetable[today].less3}
-
-${timetable[today].less4}
     `
         await bot.sendMessage(chatId, todayTable)
     }
 
     if (text === "За неделю 📆") {
-            //Week`s table
-            var week = "";
-            for (let i = 0; i < 5; i++) {
-                week +=
-                    `
-${timetable[i].day}
+        //Week`s table
+        var week = "";
+        for (let i = 0; i < 5; i++) {
+            week +=
+                `
+${timetable[i].day.toUpperCase()}
 ${timetable[i].date}:
 
 ${timetable[i].less1}
@@ -121,10 +115,8 @@ ${timetable[i].less1}
 ${timetable[i].less2}
 
 ${timetable[i].less3}
-
-${timetable[i].less4}
     `
-            }
+        }
         await bot.sendMessage(chatId, week)
     }
 
