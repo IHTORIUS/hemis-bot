@@ -72,7 +72,7 @@ ${timetable[today].less2}
                     `
 ${timetable[today].less3}
 `
-            } else if (nowH > 14.8333) {
+            } else if (nowH < 8.5 || nowH > 14.8333) {
                 now = "В данный момент уроков нет."
 
             } else {
