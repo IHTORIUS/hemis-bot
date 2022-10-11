@@ -111,9 +111,7 @@ ${timetable[i].day.toUpperCase()}
 ${timetable[i].date}:
 
 ${timetable[i].less1}
-
 ${timetable[i].less2}
-
 ${timetable[i].less3}
     `
         }
