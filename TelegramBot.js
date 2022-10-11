@@ -4,7 +4,6 @@ const TelegramApi = require('node-telegram-bot-api')
 const timetable = require("./parser")
 const updateData = require("./emuter");
 
-const fs = require("fs");
 console.log(timetable);
 
 //Bot`s token
