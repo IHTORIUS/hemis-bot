@@ -62,10 +62,22 @@ bot.on('message', async msg => {
                     `
 ${timetable[today].less1}
 `
+            } else if (9.833 < nowH && nowH < 10) {
+                now =
+                    `До начала урока: ${60-nowM} мин.
+
+${timetable[today].less2}
+`
             } else if (10 <= +nowH && nowH <= 11.3333) {
                 now =
                     `
 ${timetable[today].less2}
+`
+            } else if (11.3333 < nowH && nowH < 11.5) {
+                now =
+                    `До начала урока: ${30-nowM} мин.
+
+${timetable[today].less3}
 `
             } else if (11.5 <= +nowH && nowH <= 12.8333) {
                 now =
