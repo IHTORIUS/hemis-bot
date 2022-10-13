@@ -1,5 +1,5 @@
 process.env.NTBA_FIX_319 = 1;
-process.env.TZ = 'Asia/Tashkent';
+// process.env.TZ = 'Asia/Tashkent';
 const TelegramApi = require('node-telegram-bot-api')
 const timetable = require("./parser")
 const updateData = require("./emuter");
@@ -53,14 +53,14 @@ bot.on('message', async msg => {
         nowH = new Date().getHours() + nowM / 60;
         today = new Date().getDay() - 1;
         let now = "";
-
         //Check to epmty
-        if (timetable.length != 0) {
+        if (timetable.length!="") {
             //Lesson now
             if (8.5 <= +nowH && nowH <= 9.8333) {
-                now =
-                    `
+                now = `
 ${timetable[today].less1}
+
+До конца урока осталось: ${Math.round((9.8333-nowH)*60)} мин.
 `
             } else if (9.833 < nowH && nowH < 10) {
                 now =
@@ -72,6 +72,8 @@ ${timetable[today].less2}
                 now =
                     `
 ${timetable[today].less2}
+
+До конца урока осталось: ${Math.round((11.3333-nowH)*60)} мин.
 `
             } else if (11.3333 < nowH && nowH < 11.5) {
                 now =
@@ -83,6 +85,8 @@ ${timetable[today].less3}
                 now =
                     `
 ${timetable[today].less3}
+
+До конца урока осталось: ${Math.round((12.8333-nowH)*60)} мин.
 `
             } else if (nowH < 8.5 || nowH > 14.8333) {
                 now = "В данный момент уроков нет."
@@ -99,8 +103,12 @@ ${timetable[today].less3}
     if (text === "Сегодня 🌄") {
         //Today`s table
         today = new Date().getDay() - 1
-        var todayTable =
-            `
+        var todayTable;
+        if (today == 5 && today == -1) {
+            todayTable = "Сегодня выходной день. Уроков нет.";
+        } else {
+            todayTable =
+                `
 ${timetable[today].day}
 ${timetable[today].date}:
 
@@ -110,6 +118,7 @@ ${timetable[today].less2}
 
 ${timetable[today].less3}
     `
+        }
         await bot.sendMessage(chatId, todayTable)
     }
 
