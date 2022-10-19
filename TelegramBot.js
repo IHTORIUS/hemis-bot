@@ -47,6 +47,17 @@ bot.on('message', async msg => {
         updateData();
     }
 
+    if (text === "/teachers") {
+        await bot.sendMessage(chatId, 
+`
+[ZULUNOV R. M](https://t.me/TATUFF_DI)
+[SADIKOVA M. A.](https://t.me/Muniraxon_17)
+[XADJAYEV S. I.](https://t.me/Breddy97)
+[TILLYABOYEV A. A.](https://t.me/MasterSPI)
+`,
+        {parse_mode:'Markdown',disable_web_page_preview: true});
+    }
+
     if (text === "Сейчас... ⏳") {
         //Now time
         nowM = new Date().getMinutes();
@@ -97,14 +108,14 @@ ${timetable[today].less3}
         } else {
             now = "В данный момент уроков нет?"
         }
-        await bot.sendMessage(chatId, now)
+        await bot.sendMessage(chatId, now, {parse_mode:'HTML'})
     }
 
     if (text === "Сегодня 🌄") {
         //Today`s table
         today = new Date().getDay() - 1
         var todayTable;
-        if (today == 5 && today == -1) {
+        if (today === 5 || today === -1) {
             todayTable = "Сегодня выходной день. Уроков нет.";
         } else {
             todayTable =
@@ -119,7 +130,7 @@ ${timetable[today].less2}
 ${timetable[today].less3}
     `
         }
-        await bot.sendMessage(chatId, todayTable)
+        await bot.sendMessage(chatId, todayTable,{parse_mode:'HTML'})
     }
 
     if (text === "За неделю 📆") {
@@ -136,7 +147,7 @@ ${timetable[i].less2}
 ${timetable[i].less3}
     `
         }
-        await bot.sendMessage(chatId, week)
+        await bot.sendMessage(chatId, week,{parse_mode:'HTML'})
     }
 
 })
