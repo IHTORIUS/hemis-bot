@@ -46,7 +46,7 @@ async function parseData() {
         //2-lesson
         if ($(el).text().split("\n")[26]) {
 
-            timetable.less2 = `2. ${$(el).text().split("\n")[26].trim()} |${$(el).text().split("\n")[20].trim().bold()} |${$(el).text().split("\n")[19].trim().substring(2)} - ${$(el).text().split("\n")[22].trim().toLowerCase().substring(0,4)}.  ${$(el).text().split("\n")[24].trim()} `
+            timetable.less2 = `2. ${$(el).text().split("\n")[26].trim()} | ${$(el).text().split("\n")[20].trim().bold()} |${$(el).text().split("\n")[19].trim().substring(2)} - ${$(el).text().split("\n")[22].trim().toLowerCase().substring(0,4)}.  ${$(el).text().split("\n")[24].trim()} `
         }
         //3-lesson
         if ($(el).text().split("\n")[40]) {
