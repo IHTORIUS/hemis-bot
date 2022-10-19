@@ -41,22 +41,22 @@ async function parseData() {
         //1-lesson
         if ($(el).text().split("\n")[12]) {
 
-            timetable.less1 = `1. ${$(el).text().split("\n")[12].trim()} | ${$(el).text().split("\n")[6].trim().bold()} |${$(el).text().split("\n")[5].trim().substring(2)} - ${$(el).text().split("\n")[10].trim()} `
+            timetable.less1 = `1. ${$(el).text().split("\n")[12].trim()} | ${$(el).text().split("\n")[6].trim().bold()} |${$(el).text().split("\n")[5].trim().substring(2)} – ${$(el).text().split("\n")[10].trim()} `
         }
         //2-lesson
         if ($(el).text().split("\n")[26]) {
 
-            timetable.less2 = `2. ${$(el).text().split("\n")[26].trim()} | ${$(el).text().split("\n")[20].trim().bold()} |${$(el).text().split("\n")[19].trim().substring(2)} - ${$(el).text().split("\n")[24].trim()} `
+            timetable.less2 = `2. ${$(el).text().split("\n")[26].trim()} | ${$(el).text().split("\n")[20].trim().bold()} |${$(el).text().split("\n")[19].trim().substring(2)} – ${$(el).text().split("\n")[24].trim()} `
         }
         //3-lesson
         if ($(el).text().split("\n")[40]) {
 
-            timetable.less3 = `3. ${$(el).text().split("\n")[40].trim()} | ${$(el).text().split("\n")[34].trim().bold()} |${$(el).text().split("\n")[33].trim().substring(2)} - ${$(el).text().split("\n")[38].trim()} `
+            timetable.less3 = `3. ${$(el).text().split("\n")[40].trim()} | ${$(el).text().split("\n")[34].trim().bold()} |${$(el).text().split("\n")[33].trim().substring(2)} – ${$(el).text().split("\n")[38].trim()} `
         }
         //4-lesson
         if ($(el).text().split("\n")[54]) {
 
-            timetable.less4 = `4. ${$(el).text().split("\n")[54].trim()} | ${$(el).text().split("\n")[48].trim().bold()} | ${$(el).text().split("\n")[47].trim()} - ${$(el).text().split("\n")[52].trim()} `
+            timetable.less4 = `4. ${$(el).text().split("\n")[54].trim()} | ${$(el).text().split("\n")[48].trim().bold()} | ${$(el).text().split("\n")[47].trim()} – ${$(el).text().split("\n")[52].trim()} `
         }
 
         lessons.push(timetable);
