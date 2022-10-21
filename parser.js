@@ -61,8 +61,10 @@ async function parseData() {
 
         lessons.push(timetable);
     });
+    console.log("Запарсил.");
 }
 // updateData();
 parseData();
-console.log(lessons);
-module.exports = lessons
+console.log("Парсер работает: ",lessons);
+module.exports.parseData = parseData
+module.exports.lessons = lessons

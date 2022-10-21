@@ -1,10 +1,10 @@
 process.env.NTBA_FIX_319 = 1;
 process.env.TZ = 'Asia/Tashkent';
 const TelegramApi = require('node-telegram-bot-api')
-const timetable = require("./parser")
-const updateData = require("./emuter");
-
-console.log(timetable);
+let parser = require("./parser")
+let timetable= parser.lessons;
+let parse = parser.parseData;
+let updateData = require("./emuter");
 
 //Bot`s token
 const token = '5165864513:AAEVXXwyeO_AyiMIlp0YhGq7VmdRKRB8Py8'
@@ -44,6 +44,7 @@ bot.on('message', async msg => {
 
     if (text === "/update") {
         await bot.sendMessage(chatId, "Данные обновляются. Ждите...");
+        parse();
         updateData();
     }
 
