@@ -1,1 +1,1 @@
-worker: node TelegramBot.js
+worker: node parser.js node TelegramBot.js
