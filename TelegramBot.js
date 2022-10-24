@@ -46,6 +46,8 @@ bot.on('message', async msg => {
         await bot.sendMessage(chatId, "Данные обновляются. Ждите...");
         parse();
         updateData();
+        timetable= parser.lessons;
+        
     }
 
     if (text === "/teachers") {
