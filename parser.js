@@ -1,30 +1,30 @@
 const cheerio = require("cheerio");
 const fs = require("fs");
 
-//download local page html file
-const data = fs.readFileSync('./hemis.html')
-
-const $ = cheerio.load(data);
-
-//get days
-const days = $(".box-title");
-
-const dayslist = [];
-days.each((idx, el) => {
-    dayslist.push($(el).text().split("\n")[1].trim())
-})
-//get dates
-const date = $(".box-title").children('.pull-right');
-const datelist = [];
-date.each((idx, el) => {
-    datelist.push($(el).text().trim())
-})
-const listItems = $(".box-footer");
-const lessons = [];
 
 //main function
-async function parseData() {
-    
+function parseData() {
+
+    const dayslist = [];
+    //download local page html file
+    const data = fs.readFileSync('./hemis.html')
+
+    const $ = cheerio.load(data);
+
+    //get days
+    const days = $(".box-title");
+
+    days.each((idx, el) => {
+        dayslist.push($(el).text().split("\n")[1].trim())
+    })
+    //get dates
+    const date = $(".box-title").children('.pull-right');
+    const datelist = [];
+    date.each((idx, el) => {
+        datelist.push($(el).text().trim())
+    })
+    const listItems = $(".box-footer");
+    const lessons = [];
     listItems.each((idx, el) => {
 
         const timetable = {
@@ -62,9 +62,8 @@ async function parseData() {
         lessons.push(timetable);
     });
     console.log("Запарсил.");
+    return lessons;
 }
-// updateData();
-parseData();
-console.log("Парсер работает: ",lessons);
-module.exports.parseData = parseData
-module.exports.lessons = lessons
+// updateData()
+console.log("Парсер работает: ");
+module.exports = parseData;

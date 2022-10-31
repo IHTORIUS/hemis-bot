@@ -1,11 +1,21 @@
 process.env.NTBA_FIX_319 = 1;
+const PORT = process.env.PORT || 3000
 process.env.TZ = 'Asia/Tashkent';
 const TelegramApi = require('node-telegram-bot-api')
-let parser = require("./parser")
-let timetable= parser.lessons;
-let parse = parser.parseData;
-let updateData = require("./emuter");
+const express = require('express')
 
+const app = express()
+
+let parse = require("./parser")
+let updateData = require("./emuter");
+console.log(parse());
+let timetable = parse()
+
+const server = app.listen(PORT, () => console.log(`Listening at port ${PORT}`))
+
+app.get('/add', (req, res) => {
+    req.statusCode(200);
+})
 //Bot`s token
 const token = '5165864513:AAEVXXwyeO_AyiMIlp0YhGq7VmdRKRB8Py8'
 const bot = new TelegramApi(token, {
@@ -44,21 +54,23 @@ bot.on('message', async msg => {
 
     if (text === "/update") {
         await bot.sendMessage(chatId, "Данные обновляются. Ждите...");
-        parse();
-        updateData();
-        timetable= parser.lessons;
-        
+        await updateData();
+        timetable = parse();
+        console.log("После",timetable);
+        await bot.sendMessage(chatId, "Неделя обнавлена.");
     }
 
     if (text === "/teachers") {
-        await bot.sendMessage(chatId, 
-`
+        await bot.sendMessage(chatId,
+            `
 [ZULUNOV R. M](https://t.me/TATUFF_DI)
 [SADIKOVA M. A.](https://t.me/Muniraxon_17)
 [XADJAYEV S. I.](https://t.me/Breddy97)
 [TILLYABOYEV A. A.](https://t.me/MasterSPI)
-`,
-        {parse_mode:'Markdown',disable_web_page_preview: true});
+`, {
+                parse_mode: 'Markdown',
+                disable_web_page_preview: true
+            });
     }
 
     if (text === "Сейчас... ⏳") {
@@ -68,7 +80,7 @@ bot.on('message', async msg => {
         today = new Date().getDay() - 1;
         let now = "";
         //Check to epmty
-        if (timetable.length!="") {
+        if (timetable.length != "") {
             //Lesson now
             if (8.5 <= +nowH && nowH <= 9.8333) {
                 now = `
@@ -111,7 +123,9 @@ ${timetable[today].less3}
         } else {
             now = "В данный момент уроков нет?"
         }
-        await bot.sendMessage(chatId, now, {parse_mode:'HTML'})
+        await bot.sendMessage(chatId, now, {
+            parse_mode: 'HTML'
+        })
     }
 
     if (text === "Сегодня 🌄") {
@@ -133,7 +147,9 @@ ${timetable[today].less2}
 ${timetable[today].less3}
     `
         }
-        await bot.sendMessage(chatId, todayTable,{parse_mode:'HTML'})
+        await bot.sendMessage(chatId, todayTable, {
+            parse_mode: 'HTML'
+        })
     }
 
     if (text === "За неделю 📆") {
@@ -150,7 +166,9 @@ ${timetable[i].less2}
 ${timetable[i].less3}
     `
         }
-        await bot.sendMessage(chatId, week,{parse_mode:'HTML'})
+        await bot.sendMessage(chatId, week, {
+            parse_mode: 'HTML'
+        })
     }
 
 })
