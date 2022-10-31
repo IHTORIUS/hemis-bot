@@ -1,7 +1,4 @@
 {
-  "scripts": {
-    "start-dev": "node TelegramBot.js",
-    "start": "node TelegramBot.js"
   },
   "dependencies": {
     "@mapbox/node-pre-gyp": "^1.0.9",
